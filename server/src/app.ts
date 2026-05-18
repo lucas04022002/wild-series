@@ -62,6 +62,10 @@ app.use(
 // Import the API router
 import router from "./router";
 
+app.get("/", (req, res) => {
+  res.send("Welcome to Wild Series !");
+});
+
 // Mount the API router under the "/api" endpoint
 app.use(router);
 
