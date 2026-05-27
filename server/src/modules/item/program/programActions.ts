@@ -1,4 +1,4 @@
-// Some data to make the trick
+import programRepository from "./programRepository";
 
 const programs = [
   {
@@ -27,8 +27,10 @@ const programs = [
 
 import type { RequestHandler } from "express";
 
-const browse: RequestHandler = (req, res) => {
-  res.json(programs);
+const browse: RequestHandler = async (req, res) => {
+  const programsFromDB = await programRepository.readAll();
+
+  res.json(programsFromDB);
 };
 
 // Export it to import it somewhere else
